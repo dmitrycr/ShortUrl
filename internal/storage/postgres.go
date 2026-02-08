@@ -147,3 +147,26 @@ func (s *PostgresStorage) GetStats(ctx context.Context, code string) (*model.Sta
 	return &stats, nil
 
 }
+
+func (s *PostgresStorage) Delete(ctx context.Context, code string) error {
+	query := `
+		DELETE FROM urls 
+		WHERE short_code = $1
+`
+
+	result, err := s.pool.Exec(ctx, query, code)
+	if err != nil {
+		return fmt.Errorf("failed delete url: %w", err)
+	}
+
+	if result.RowsAffected() == 0 {
+		return ErrNotFound
+	}
+
+	return nil
+}
+
+func (s *PostgresStorage) Close() error {
+	s.pool.Close()
+	return nil
+}
