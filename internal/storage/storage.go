@@ -15,7 +15,7 @@ var (
 
 type Storage interface {
 	Save(ctx context.Context, url *model.URL) error
-	GetByShortCode(ctx context.Context, code string) error
+	GetByShortCode(ctx context.Context, code string) (*model.URL, error)
 	IncrementClicks(ctx context.Context, code string) error
 	GetStats(ctx context.Context, code string) (*model.Stats, error)
 	Delete(ctx context.Context, code string) error
