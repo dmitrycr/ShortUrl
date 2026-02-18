@@ -18,8 +18,10 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - urlshortener-network
 
-  # Redis для кэширования (опционально)
+  # Опционально: Redis для кэширования
   redis:
     image: redis:7-alpine
     container_name: urlshortener-redis
@@ -30,6 +32,13 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - urlshortener-network
+
 
 volumes:
   postgres_data:
+
+networks:
+  urlshortener-network:
+    driver: bridge

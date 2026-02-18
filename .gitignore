@@ -1,71 +1,37 @@
-# Бинарные файлы
+# Binaries
+bin/
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
-*.app
-*.out
 
-# Директории
-/bin/
-/dist/
-/out/
-/target/
-/vendor/
-
-# Файлы Go
+# Test binary
 *.test
-*.test.exe
-*.prof
-*.trace
-coverage.txt
-profile.out
+
+# Output of the go coverage tool
+*.out
 coverage.html
-coverage.xml
 
-# Временные файлы тестов
-_testmain.go
-*.test.tmp
-
-# Go модули и кэш
+# Go workspace file
 go.work
-go.work.sum
-.workspace/
 
-# IDE и редакторы
-.vscode/
+# Environment variables
+.env
+
+# IDE
 .idea/
+.vscode/
 *.swp
 *.swo
 *~
-.project
-.settings/
 
-# Операционные системы
+# OS
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
-# Логи и временные файлы
+# Logs
 *.log
-*.tmp
-*.temp
 
-# Конфигурационные файлы (кроме основных)
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-*.local.yaml
-*.local.yml
-
-# Документация
-/docs/_build/
-/site/
-
+# Database
+*.db
