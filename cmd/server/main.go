@@ -11,6 +11,8 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/joho/godotenv"
+
 	"github.com/dmitrycr/ShortUrl/internal/config"
 	"github.com/dmitrycr/ShortUrl/internal/handler"
 	"github.com/dmitrycr/ShortUrl/internal/service"
@@ -18,6 +20,10 @@ import (
 )
 
 func main() {
+
+	// Загружаем .env файл (игнорируем ошибку если файла нет)
+	_ = godotenv.Load()
+
 	// Загружаем конфигурацию
 	cfg, err := config.Load()
 	if err != nil {

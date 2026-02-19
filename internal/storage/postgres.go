@@ -46,10 +46,10 @@ func NewPostgresStorage(ctx context.Context, connString string) (*PostgresStorag
 
 func (s *PostgresStorage) Save(ctx context.Context, url *model.URL) error {
 	query := `
-		INSERT INFO urls (original_url, short_code, created_at, expires_at, click_count)
-		VALUES ($1, $2, $3, $4, $5)
-		RETURNING id
-	`
+    INSERT INTO urls (original_url, short_code, created_at, expires_at, click_count)
+    VALUES ($1, $2, $3, $4, $5)
+    RETURNING id
+`
 
 	err := s.pool.QueryRow(
 		ctx,
