@@ -114,5 +114,8 @@ func setupLogger(cfg *config.Config) *slog.Logger {
 		})
 	}
 
+	fmt.Print(123)
+
 	return slog.New(handler)
+
 }
